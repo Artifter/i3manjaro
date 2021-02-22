@@ -45,10 +45,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 #exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+p exec terminal -e 'alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +8% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -8% #decrease sound volume
@@ -149,22 +147,17 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-#: 
-set $ws2 2
-#:
-set $ws3 3
-#: 
+set $ws1 1: 
+set $ws2 2:
+set $ws3 3: 
 set $ws4 4
 #:
 set $ws5 5
 #:
 set $ws6 6
 #:
-set $ws7 7
-#:
-set $ws8 8
-#:
+set $ws7 7:
+set $ws8 8:
 set $wsM 
 
 assign [class=firefox] $ws1
@@ -213,10 +206,6 @@ bindsym $mod+Shift+m move container to workspace $wsM; workspace $wsM
 
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -314,13 +303,11 @@ exec--no-startup-id picom
 #exec --no-startup-id feh --randomize --bg-scale /home/adam/Pictures/Wallpapers/*
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id nitrogen --restore; sleep 1; p ic om -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
-exec --no-startup-id dunst -config /home/adam/.config/dunst/dunstrc
+#exec --no-startup-id dunst -config /home/adam/.config/dunst/dunstrc
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -452,5 +439,3 @@ mode "$mode_gaps_outer" {
 }
 
 
-
-exec /home/adam/.bin/scripts/resol_i3.sh
